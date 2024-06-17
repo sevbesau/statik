@@ -1,7 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Prisma, PrismaClient } from '@prisma/client';
 import { PrismaService } from 'src/lib/prisma/prisma.service';
-import { CreateVisitorDto } from './dto/create.visitor.dto';
 import { CreateReservationDto } from './dto/create.reservation.dto';
 
 @Injectable()
@@ -20,19 +18,6 @@ export class ReservationsService {
     });
 
     return this.findById(createdId);
-  }
-
-  async addVisitor(reservationId: number, createVisitorDto: CreateVisitorDto) {
-    return this.prisma.reservation.update({
-      where: {
-        id: reservationId,
-      },
-      data: {
-        visitors: {
-          create: createVisitorDto,
-        },
-      },
-    });
   }
 
   async findAll() {
