@@ -1,10 +1,5 @@
 # Zoo reservation system
 
-## Todo
-
-- [ ] fix openapi nested dto
-- [ ] setup input validation
-
 ## Backend
 
 To run the backend first install its dependencies:
