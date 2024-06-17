@@ -3,7 +3,7 @@ import { VisitorForm } from "./components/app/VisitorForm";
 import { Visitor } from "./schemas/visitor.schema";
 import VisitorCard from "./components/app/VisitorCard";
 
-import { Reservation, reservationSchema } from "./schemas/reservation.schema";
+import { Reservation } from "./schemas/reservation.schema";
 
 import { createReservation } from "./lib/api";
 import { Toaster } from "./components/ui/toaster";
