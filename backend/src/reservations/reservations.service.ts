@@ -1,9 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { PrismaService } from 'src/lib/prisma/prisma.service';
 import { CreateReservationDto } from './dto/create.reservation.dto';
 
 @Injectable()
 export class ReservationsService {
+  private readonly logger = new Logger(ReservationsService.name);
+
   constructor(private readonly prisma: PrismaService) {}
 
   async createOne(createReservationDto: CreateReservationDto) {
@@ -17,6 +19,7 @@ export class ReservationsService {
       },
     });
 
+    this.logger.debug('Reservation created', createReservationDto);
     return this.findById(createdId);
   }
 
