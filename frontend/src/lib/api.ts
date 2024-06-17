@@ -2,8 +2,7 @@ import { Reservation } from "@/schemas/reservation.schema";
 import { Visitor } from "@/schemas/visitor.schema";
 
 import axios from "axios";
-
-const API_URL = "http://localhost:3000";
+import { API_URL } from "./config";
 
 export async function createReservation(
   reservation: Reservation & { visitors: Visitor[] }

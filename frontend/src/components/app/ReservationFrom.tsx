@@ -21,25 +21,10 @@ import {
 } from "../ui/select";
 
 import { nlBE } from "date-fns/locale/nl-BE";
-import { useForm, useFormContext } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Reservation, reservationSchema } from "@/schemas/reservation.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-const ZOO_OPENING_TIME_H = 10;
-const ZOO_CLOSING_TIME_H = 20;
-const TIMESLOT_DURATION_H = 2;
-
-const timeslots: string[] = [];
-
-for (
-  let timeslotStart = ZOO_OPENING_TIME_H;
-  timeslotStart < ZOO_CLOSING_TIME_H - TIMESLOT_DURATION_H;
-  timeslotStart += TIMESLOT_DURATION_H
-) {
-  timeslots.push(
-    `${timeslotStart}:00 - ${timeslotStart + TIMESLOT_DURATION_H}:00`
-  );
-}
+import { TIMESLOTS } from "@/lib/config";
 
 interface ReservationFormProps {
   onSubmit: (reservation: Reservation) => void;
@@ -112,7 +97,7 @@ export default function ReservationForm({ onSubmit }: ReservationFormProps) {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  {timeslots.map((timeslot) => (
+                  {TIMESLOTS.map((timeslot) => (
                     <SelectItem key={timeslot} value={timeslot}>
                       {timeslot}
                     </SelectItem>
