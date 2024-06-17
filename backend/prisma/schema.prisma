@@ -19,7 +19,7 @@ model Reservation {
   visitors  Visitor[]
 
   date      DateTime
-  timeslot  DateTime
+  timeslot  String
 }
 
 model Visitor {

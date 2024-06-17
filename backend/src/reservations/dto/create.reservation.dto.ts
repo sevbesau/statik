@@ -6,7 +6,7 @@ export class CreateReservationDto {
   date: Date;
 
   @ApiProperty()
-  timeslot: Date;
+  timeslot: string;
 
   @ApiProperty()
   visitors?: CreateVisitorDto[];
